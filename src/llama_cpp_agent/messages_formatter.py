@@ -253,6 +253,7 @@ mixtral_formatter = MessagesFormatter(
     mixtral_prompt_markers,
     True,
     ["</s>"],
+    strip_prompt=False,     #added
 )
 
 chatml_formatter = MessagesFormatter(
@@ -284,7 +285,7 @@ llama_3_formatter = MessagesFormatter(
     False,
     ["assistant", "<|eot_id|>"],
     use_user_role_for_function_call_result=False,
-    strip_prompt=True,
+    strip_prompt=False, #added
 )
 
 synthia_formatter = MessagesFormatter(
@@ -344,7 +345,7 @@ phi_3_chat_formatter = MessagesFormatter(
     "",
     phi_3_chat_prompt_markers,
     True,
-    ["<|end|>", "<|end_of_turn|>"],
+    ["<|end|>", "<|endoftext|>"],
     use_user_role_for_function_call_result=True,
 )
 
@@ -369,7 +370,8 @@ gemma_2_chat_formatter = MessagesFormatter(
     "",
     gemma_2_prompt_markers,
     True,
-    ["<end_of_turn>", "<start_of_turn>"]
+    ["<end_of_turn>", "<start_of_turn>"],
+    strip_prompt=False, #added
 )
 
 deep_seek_coder_2_chat_formatter = MessagesFormatter(
